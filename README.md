@@ -1,5 +1,6 @@
 # Note
 ### Sample App For Managing Note
+![1](https://github.com/fseyedsafar/Note/assets/54942560/1486cc9c-1e09-453f-bc90-3c57bd207baf)
 ### Images App
 <p float="left">
 <img src="https://user-images.githubusercontent.com/54942560/99698226-62956500-2a45-11eb-9119-d343d743939a.jpg"
