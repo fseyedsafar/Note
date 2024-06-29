@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:note/db/database.dart';
 import 'package:note/model/note.dart';
@@ -45,11 +44,11 @@ class _DetailNotePage extends State<DetailNotePage> {
           title: const Text(
             "note detail",
             style: TextStyle(
-              color: AppColor.color,
+              color: AppColor.primaryColor,
             ),
           ),
           iconTheme: const IconThemeData(
-            color: AppColor.color,
+            color: AppColor.primaryColor,
           ),
           backgroundColor: Colors.black,
           actions: [

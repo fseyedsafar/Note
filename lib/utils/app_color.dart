@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
 
 class AppColor {
-  static const MaterialColor color = Colors.deepOrange;
+  static const MaterialColor primaryColor = Colors.deepOrange;
 }

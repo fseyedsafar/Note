@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:note/db/database.dart';
 import 'package:note/model/note.dart';
-import 'package:note/view/add_note_page.dart';
 import 'package:note/utils/app_color.dart';
-import 'package:note/view/detail_note_page.dart';
 import 'package:note/utils/view_config.dart';
+
+import 'add/add_note_page.dart';
+import 'edit/detail_note_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,17 +21,23 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: AppColor.color,
-      ),
+          // This is the theme of your application.
+          //
+          // Try running your application with "flutter run". You'll see the
+          // application has a blue toolbar. Then, without quitting the app, try
+          // changing the primarySwatch below to Colors.green and then invoke
+          // "hot reload" (press "r" in the console where you ran "flutter run",
+          // or simply save your changes to "hot reload" in a Flutter IDE).
+          // Notice that the counter didn't reset back to zero; the application
+          // is not restarted.
+          primarySwatch: AppColor.primaryColor,
+          floatingActionButtonTheme: const FloatingActionButtonThemeData(
+            backgroundColor: AppColor.primaryColor,
+            // foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+                // <= Change BeveledRectangleBorder to RoundedRectangularBorder
+                borderRadius: BorderRadius.all(Radius.circular(30.0))),
+          )),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -61,18 +68,13 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     noteList = NoteDataBase.db.getNoteList();
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
           'Notes',
           style: TextStyle(
-            color: AppColor.color,
+            color: AppColor.primaryColor,
           ),
         ),
         backgroundColor: Colors.black,
@@ -87,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
               //todo check
               setState(() {});
             },
-            icon: const Icon(Icons.list_alt, color: AppColor.color),
+            icon: const Icon(Icons.list_alt, color: AppColor.primaryColor),
           ),
         ],
       ),

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:note/model/note.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
@@ -33,7 +32,7 @@ class NoteDataBase {
   */
   Future<int> insertNote(Note note) async {
     final db = await database;
-    var result = await db.rawInsert(
+    int result = await db.rawInsert(
         "insert into tbl_note(title, description, timeNote, dateNote) values(?, ?, ?, ?)",
         [note.title, note.description, note.time, note.date]);
     return result;
@@ -43,7 +42,7 @@ class NoteDataBase {
     final db = await database;
     var response = await db.rawQuery("select * from tbl_note");
     List<Note> noteList = [];
-    response.forEach((element) {
+    for (var element in response) {
       Map item = element;
       int id = item['id'];
       String title = item['title'];
@@ -52,7 +51,7 @@ class NoteDataBase {
       String date = item['dateNote'];
       var note = Note(id, title, description, date, time);
       noteList.add(note);
-    });
+    }
     return noteList;
   }
 
